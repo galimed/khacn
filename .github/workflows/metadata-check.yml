@@ -1,0 +1,181 @@
+name: KHACN Metadata Integrity Check
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "token-metadata.json"
+      - "khacn-tokenlist.json"
+      - "logo.png"
+      - ".github/workflows/metadata-check.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "token-metadata.json"
+      - "khacn-tokenlist.json"
+      - "logo.png"
+
+  schedule:
+    - cron: "0 8 * * *"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  validate-khacn-metadata:
+    name: Validate KHACN official metadata
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate JSON syntax
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('token-metadata.json', 'utf8')); console.log('token-metadata.json is valid JSON')"
+          node -e "JSON.parse(require('fs').readFileSync('khacn-tokenlist.json', 'utf8')); console.log('khacn-tokenlist.json is valid JSON')"
+
+      - name: Validate KHACN contract consistency
+        run: |
+          node <<'EOF'
+          const fs = require("fs");
+
+          const expectedAddress = "0x11c1b94294A7967092F747434dEE4876EcA5fD53".toLowerCase();
+          const expectedSymbol = "KHACN";
+          const expectedChainId = 1;
+          const expectedDecimals = 18;
+
+          const metadata = JSON.parse(fs.readFileSync("token-metadata.json", "utf8"));
+          const tokenList = JSON.parse(fs.readFileSync("khacn-tokenlist.json", "utf8"));
+
+          const errors = [];
+
+          if (metadata.address?.toLowerCase() !== expectedAddress) {
+            errors.push("token-metadata.json: incorrect official contract address.");
+          }
+
+          if (metadata.symbol !== expectedSymbol) {
+            errors.push("token-metadata.json: incorrect token symbol.");
+          }
+
+          if (metadata.chainId !== expectedChainId) {
+            errors.push("token-metadata.json: incorrect chainId.");
+          }
+
+          if (metadata.decimals !== expectedDecimals) {
+            errors.push("token-metadata.json: incorrect decimals.");
+          }
+
+          if (!Array.isArray(tokenList.tokens) || tokenList.tokens.length === 0) {
+            errors.push("khacn-tokenlist.json: tokens array is missing or empty.");
+          } else {
+            const khacn = tokenList.tokens.find(
+              (token) => token.address?.toLowerCase() === expectedAddress
+            );
+
+            if (!khacn) {
+              errors.push("khacn-tokenlist.json: official KHACN contract not found.");
+            } else {
+              if (khacn.symbol !== expectedSymbol) {
+                errors.push("khacn-tokenlist.json: incorrect KHACN symbol.");
+              }
+
+              if (khacn.chainId !== expectedChainId) {
+                errors.push("khacn-tokenlist.json: incorrect KHACN chainId.");
+              }
+
+              if (khacn.decimals !== expectedDecimals) {
+                errors.push("khacn-tokenlist.json: incorrect KHACN decimals.");
+              }
+
+              if (khacn.logoURI !== metadata.logoURI) {
+                errors.push("Logo URI mismatch between metadata and token list.");
+              }
+            }
+          }
+
+          if (errors.length > 0) {
+            console.error("KHACN METADATA VALIDATION FAILED:");
+            errors.forEach((error) => console.error(`- ${error}`));
+            process.exit(1);
+          }
+
+          console.log("KHACN metadata validation passed.");
+          EOF
+
+      - name: Verify official files are present
+        run: |
+          test -f token-metadata.json
+          test -f khacn-tokenlist.json
+          test -f logo.png
+          echo "All official KHACN files are present."
+
+      - name: Verify public URLs are reachable
+        run: |
+          curl --fail --silent --show-error --location \
+            https://raw.githubusercontent.com/galimed/khacn/main/token-metadata.json
+
+          curl --fail --silent --show-error --location \
+            https://raw.githubusercontent.com/galimed/khacn/main/khacn-tokenlist.json
+
+          curl --fail --silent --show-error --location \
+            https://raw.githubusercontent.com/galimed/khacn/main/logo.png
+
+          echo "All public KHACN registry URLs are reachable."
+
+      - name: Create GitHub issue if validation fails
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "KHACN Metadata Integrity Alert";
+            const body = `
+            ## KHACN Metadata Integrity Alert
+
+            The automated KHACN registry validation failed.
+
+            Please verify:
+
+            - Official contract address:
+              \`0x11c1b94294A7967092F747434dEE4876EcA5fD53\`
+            - token-metadata.json
+            - khacn-tokenlist.json
+            - logo.png
+            - Public RAW GitHub URLs
+            - Consistency between metadata and token list
+
+            Workflow run:
+            ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}
+            `;
+
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "security,automation"
+            });
+
+            const alreadyOpen = existing.data.some(
+              (issue) => issue.title === title
+            );
+
+            if (!alreadyOpen) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ["security", "automation"]
+              });
+            }
