@@ -161,5 +161,5 @@ Users remain responsible for their own research, wallet security, transaction ve
 Email: contact@startarcoins.com / notairebtc@yahoo.fr / pro.nzaba@yahoo.fr
 
 ```md
-<img src="./logo.png" alt="KHACN Official Logo" width="240" />
+<img src="https://raw.githubusercontent.com/galimed/khacn/main/logo.png" alt="KHACN Official Logo" width="240" />
 ```
