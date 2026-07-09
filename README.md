@@ -1,39 +1,165 @@
-About KharYsma Coins
-KharYsma Coins (KHACN) is an innovative ERC20 token that bridges the gap between digital art, technological innovation, and practical utility. Developed by Groupe Business Therapie (GBT), KHACN represents a new paradigm in cryptocurrency design.
+````md
+# KHACN — KharYsma Coins
 
-KHACN is a groundbreaking utility ERC20 token rooted in the creative ecosystem of international artist KharYsma Arafat NZABA. It merges art and blockchain by anchoring tangible assets — music, paintings, books — to blockchain technology.
+https://startarcoins.com">Website
+https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53">Etherscan
+https://app.uniswap.org/explore/tokens/ethereum/0x11c1b94294A7967092F747434dEE4876EcA5fD53
 
-Smart contract adress:
+
+---
+
+## About KharYsma Coins
+
+**KharYsma Coins (KHACN)** is an ERC-20 utility token developed by **Groupe Business Thérapie (GBT)**.
+
+KHACN connects the creative universe of international artist **KharYsma Arafat NZABA** with blockchain technology. The project is designed to support a growing ecosystem combining digital art, music, paintings, books, audiovisual works, community experiences, and future Web3 services.
+
+The purpose of KHACN is to create practical utility around creative assets while building an international digital ecosystem powered by Ethereum.
+
+> **KHACN is the official token of the KharYsma ecosystem. Always verify the smart-contract address before interacting with any token or liquidity pool.**
+
+---
+
+## Official Token Information
+
+| Item | Official Information |
+|---|---|
+| **Token name** | KharYsma Coins |
+| **Ticker** | `KHACN` |
+| **Standard** | ERC-20 |
+| **Network** | Ethereum Mainnet |
+| **Project developer** | Groupe Business Thérapie (GBT) |
+| **Official website** | [startarcoins.com](https://startarcoins.com) |
+| **Contract verification** | [View on Etherscan](https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53) |
+
+## Official Smart Contract
+
+```text
 0x11c1b94294A7967092F747434dEE4876EcA5fD53
+````
 
-Logo url attach to ths repo 
+> **Only trust this exact contract address for KHACN on Ethereum.**
 
-COMMUNIQUÉ OFFICIEL — KHACN
+---
 
-Une erreur de manipulation lors d’une tentative de création d’enchère sur Uniswap a entraîné le déploiement accidentel d’un token distinct. Ce token ne représente pas KharYsma Coins, n’est pas le token officiel du projet et ne doit pas être acheté, échangé ou utilisé comme référence.
+## KHACN Ecosystem
 
-Le seul contrat officiel du token KHACN — KharYsma Coins sur Ethereum est :
+| Area           | Purpose                                                                                       |
+| -------------- | --------------------------------------------------------------------------------------------- |
+| 🎵 Music       | Access, promotion, releases, royalties-oriented initiatives, and artist-community experiences |
+| 🎨 Art         | Digital and physical artwork initiatives connected to blockchain utility                      |
+| 📚 Publishing  | Books, literary projects, digital editions, and creative distribution                         |
+| 🎬 Audiovisual | Films, videograms, visual content, and cultural projects                                      |
+| 🌍 Community   | International community engagement and future Web3 experiences                                |
+| ⚙️ Technology  | Blockchain-based utility, token integrations, and future decentralized services               |
 
+---
+
+# ⚠️ Official Security Notice
+
+## 🇫🇷 COMMUNIQUÉ OFFICIEL — KHACN
+
+Une erreur de manipulation lors d’une tentative de création d’enchère sur Uniswap a entraîné le déploiement accidentel d’un token distinct.
+
+Ce token accidentel :
+
+* ne représente **pas** KharYsma Coins ;
+* n’est **pas affilié** au projet KHACN officiel ;
+* ne doit pas être utilisé comme référence ;
+* ne doit pas être acheté, échangé ou confondu avec le token officiel.
+
+Le seul contrat officiel du token **KHACN — KharYsma Coins** sur Ethereum est :
+
+```text
 0x11c1b94294A7967092F747434dEE4876EcA5fD53
+```
 
-Avant toute opération, vérifiez toujours l’adresse complète du smart contract. Le visuel officiel KHACN inclut désormais une bordure dorée portant la mention “KHACN • OFFICIAL” afin de renforcer l’identification du token authentique.
+Avant toute transaction, vérifiez toujours l’adresse complète du smart contract.
 
-Site officiel : [Startarcoins](https://startarcoins.com)
-Contrat vérifiable : https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53
 
-#KHACN #KharYsmaCoins #Ethereum #Uniswap #Web3 #CryptoSecurity
+```text
+KHACN • ETH • USDT • STRB
+```
 
-🇬🇧 OFFICIAL NOTICE — KHACN
+Cette identité visuelle a été mise en place pour faciliter la reconnaissance du token authentique.
 
-A handling error during an Uniswap auction setup accidentally deployed a separate token contract. That token is not KharYsma Coins, is not affiliated with the official project, and must not be bought, traded, or used as a reference.
+| Official Resource | Link                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------ |
+| Website           | [https://startarcoins.com](https://startarcoins.com)                                       |
+| Official Contract | [Etherscan — KHACN](https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53) |
+| Network           | Ethereum Mainnet                                                                           |
 
-The only official KHACN — KharYsma Coins contract on Ethereum is:
+---
 
+## 🇬🇧 OFFICIAL NOTICE — KHACN
+
+A handling error during an Uniswap auction setup accidentally deployed a separate token contract.
+
+This accidental token:
+
+* is **not** KharYsma Coins;
+* is **not affiliated** with the official KHACN project;
+* must not be used as a reference;
+* must not be bought, traded, or confused with the official token.
+
+The only official **KHACN — KharYsma Coins** contract on Ethereum is:
+
+```text
 0x11c1b94294A7967092F747434dEE4876EcA5fD53
+```
 
-Always verify the full smart-contract address before any transaction. The official KHACN visual identity now includes a gold-ring marker reading “KHACN • OFFICIAL” to help distinguish the authentic token.
+Always verify the complete smart-contract address before interacting with any token, pool, auction, or decentralized exchange.
 
-Official website: https://startarcoins.com
-Verified contract: https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53
 
-#KHACN #KharYsmaCoins #Ethereum #Uniswap #Web3 #CryptoSecurity
+
+```text
+kharYsma Coins logo link 
+```
+
+This marker is intended to help the community identify the authentic token.
+
+| Official Resource | Link                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------ |
+| Website           | [https://startarcoins.com](https://startarcoins.com)                                       |
+| Official Contract | [Etherscan — KHACN](https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53) |
+| Network           | Ethereum Mainnet                                                                           |
+
+---
+
+## Verification Checklist
+
+Before buying, swapping, adding liquidity, or participating in an auction:
+
+* [ ] Confirm the network is **Ethereum Mainnet**
+* [ ] Confirm the token symbol is **KHACN**
+* [ ] Confirm the contract address is exactly:
+
+```text
+0x11c1b94294A7967092F747434dEE4876EcA5fD53
+```
+
+* [ ] Verify the official website is [startarcoins.com](https://startarcoins.com)
+* [ ] Verify the token on [Etherscan](https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53)
+* [ ] Do not rely only on a logo, token name, ticker, social-media post, or search result
+
+---
+
+## Disclaimer
+
+KHACN is a blockchain-based utility token. Digital assets involve market, liquidity, technical, regulatory, and smart-contract risks. Nothing in this repository constitutes investment, legal, tax, or financial advice.
+
+Users remain responsible for their own research, wallet security, transaction verification, and compliance with applicable laws.
+
+---
+
+<p align="center">
+  <strong>KHACN • OFFICIAL • Ethereum Mainnet</strong><br />
+  Built by Groupe Business Thérapie (GBT)
+</p>
+```
+
+Email: contact@startarcoins.com / notairebtc@yahoo.fr / pro.nzaba@yahoo.fr
+
+```md
+<img src="./logo.png" alt="KHACN Official Logo" width="240" />
+```
