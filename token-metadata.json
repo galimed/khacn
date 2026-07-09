@@ -1,0 +1,18 @@
+{
+  "name": "KharYsma Coins",
+  "symbol": "KHACN",
+  "chainId": 1,
+  "address": "0x11c1b94294A7967092F747434dEE4876EcA5fD53",
+  "decimals": 18,
+  "logoURI": "https://raw.githubusercontent.com/galimed/khacn/main/logo.png",
+  "website": "https://startarcoins.com",
+  "explorer": "https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53",
+  "uniswapTokenPage": "https://app.uniswap.org/explore/tokens/ethereum/0x11c1b94294a7967092f747434dee4876eca5fd53",
+  "uniswapTokenListIssue": "https://github.com/Uniswap/default-token-list/issues/2525",
+  "market": {
+    "name": "Tokpie",
+    "pair": "KHACN/USDT",
+    "url": "https://tokpie.com/dashboard/make_request/khacn-usdt/"
+  },
+  "updatedAt": "2026-07-09"
+}
