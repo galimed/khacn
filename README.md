@@ -161,5 +161,10 @@ Users remain responsible for their own research, wallet security, transaction ve
 Email: contact@startarcoins.com / notairebtc@yahoo.fr / pro.nzaba@yahoo.fr
 
 ```md
-<img src="https://raw.githubusercontent.com/galimed/khacn/main/logo.png" alt="KHACN Official Logo" width="240" />
+## Official references
+
+- Uniswap token list issue: https://github.com/Uniswap/default-token-list/issues/2525
+- Official contract: https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53
+- Official website: https://startarcoins.com
+- Official logo: https://raw.githubusercontent.com/galimed/khacn/main/logo.png
 ```
