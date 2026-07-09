@@ -168,3 +168,10 @@ Email: contact@startarcoins.com / notairebtc@yahoo.fr / pro.nzaba@yahoo.fr
 - Official website: https://startarcoins.com
 - Official logo: https://raw.githubusercontent.com/galimed/khacn/main/logo.png
 ```
+## Official KHACN metadata
+
+The official KHACN metadata source is:
+- token-metadata.json
+- contract: 0x11c1b94294A7967092F747434dEE4876EcA5fD53
+- website: https://startarcoins.com
+- logo: https://raw.githubusercontent.com/galimed/khacn/main/logo.png
