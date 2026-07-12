@@ -4,7 +4,7 @@
 https://startarcoins.com">Website
 https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53">Etherscan
 https://app.uniswap.org/explore/tokens/ethereum/0x11c1b94294A7967092F747434dEE4876EcA5fD53
-
+Token source code: https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53#code
 
 ---
 
