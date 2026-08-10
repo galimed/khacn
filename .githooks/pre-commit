@@ -1,0 +1,13 @@
+#!/bin/sh
+# Garde-fou KHACN : bloque tout commit qui introduirait une adresse
+# de contrat differente de l'officielle.
+python3 tools/verify_integrity.py 2>/dev/null || python tools/verify_integrity.py
+status=$?
+if [ $status -ne 0 ]; then
+    echo ""
+    echo "Commit bloque : l'integrite de l'adresse du contrat KHACN a echoue."
+    echo "Si le changement est legitime, mets d'abord a jour CANONICAL_ADDRESS"
+    echo "dans tools/verify_integrity.py."
+    exit 1
+fi
+exit 0
