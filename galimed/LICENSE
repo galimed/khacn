@@ -1,0 +1,178 @@
+GALIMED — LICENCE SOURCE-DISPONIBLE (SOURCE-AVAILABLE)
+Version 1.0 — 2026
+
+Copyright (c) 2026 Groupe Business Thérapie. Tous droits réservés.
+
+Ceci N'EST PAS une licence open-source au sens de l'Open Source Definition
+ni une licence libre au sens de la Free Software Definition. Le code source
+de ce dossier ("le Logiciel") est rendu public et consultable, mais son
+usage est soumis aux conditions ci-dessous.
+
+AVERTISSEMENT : ce texte n'est pas un avis juridique et n'a pas été rédigé
+par un avocat. Groupe Business Thérapie recommande une revue par un conseil
+juridique avant toute exploitation commerciale s'appuyant sur cette licence.
+
+
+ARTICLE 1 — DÉFINITIONS
+
+« Logiciel » désigne l'ensemble des fichiers sources, scripts, données et
+documentation contenus dans le dossier `galimed/` de ce dépôt, ainsi que
+toute copie, modification ou œuvre dérivée.
+
+« Licencié » désigne toute personne physique ou morale qui télécharge,
+consulte, exécute, copie ou modifie le Logiciel.
+
+« Usage d'Évaluation » désigne l'exécution du Logiciel à des fins non
+commerciales et non cliniques : lecture du code, tests automatisés, audit
+de sécurité, démonstration interne, enseignement, ou recherche non financée
+par un tiers à but commercial — dans tous les cas sans traitement de
+données de patients réels et sans intégration dans un service rendu à des
+tiers.
+
+« Usage Commercial ou Clinique » désigne tout usage du Logiciel qui n'entre
+pas dans la définition de l'Usage d'Évaluation ci-dessus, incluant
+notamment : l'intégration du Logiciel dans un produit ou service proposé à
+des tiers, à titre gratuit ou onéreux ; le traitement de données de
+patients réels, même à titre de test préalable à un déploiement ; et
+l'utilisation au sein d'un établissement de santé ou d'un cabinet dans le
+cadre d'une activité de soin.
+
+« Licence Commerciale » désigne l'autorisation écrite délivrée par
+Groupe Business Thérapie, dans les conditions décrites dans COMMERCIAL.md,
+permettant un Usage Commercial ou Clinique.
+
+« Mécanisme de Contrôle de Licence » désigne tout code de ce dossier dont
+la fonction est de vérifier, appliquer ou faire respecter les conditions de
+la présente licence, notamment les fichiers `gate.py`, `licensing.py` et
+`ed25519.py`.
+
+
+ARTICLE 2 — LICENCE D'ÉVALUATION GRATUITE
+
+Sous réserve du respect de la présente licence, Groupe Business Thérapie
+accorde à tout Licencié une licence non-exclusive, gratuite, non
+transférable et révocable pour :
+
+  a) consulter, copier et exécuter le Logiciel dans le cadre d'un Usage
+     d'Évaluation ;
+  b) modifier le Logiciel dans le cadre d'un Usage d'Évaluation ;
+  c) exécuter les suites de tests fournies et auditer le fonctionnement du
+     Logiciel, y compris ses composants cryptographiques.
+
+Cette licence d'évaluation ne couvre en aucun cas un Usage Commercial ou
+Clinique, y compris lorsque celui-ci reste dans la limite technique des
+25 scorings gratuits appliquée par `gate.py` : cette limite technique est
+une mesure de convenance, pas une autorisation contractuelle d'usage
+commercial ou clinique en deçà du seuil.
+
+
+ARTICLE 3 — USAGE COMMERCIAL OU CLINIQUE : LICENCE PAYANTE REQUISE
+
+Tout Usage Commercial ou Clinique du Logiciel requiert l'obtention préalable
+d'une Licence Commerciale auprès de Groupe Business Thérapie, dans les
+conditions décrites dans COMMERCIAL.md. Un Usage Commercial ou Clinique
+sans Licence Commerciale valide constitue une violation de la présente
+licence et une contrefaçon au sens du droit de la propriété intellectuelle
+applicable.
+
+
+ARTICLE 4 — INTERDICTION DE CONTOURNEMENT
+
+Il est strictement interdit, sans autorisation écrite préalable de
+Groupe Business Thérapie, de :
+
+  a) retirer, désactiver, contourner, neutraliser ou tenter de neutraliser,
+     de quelque manière que ce soit, tout Mécanisme de Contrôle de Licence,
+     y compris en modifiant le code source, en interceptant ses appels, ou
+     en substituant une implémentation alternative qui en imite le
+     comportement sans en respecter les conditions ;
+  b) publier, distribuer ou proposer une version modifiée du Logiciel dont
+     un Mécanisme de Contrôle de Licence aurait été retiré ou affaibli ;
+  c) générer, forger ou tenter de forger une clé de licence sans détenir la
+     clé privée correspondante, ou exploiter une faille du Logiciel à cette
+     fin ;
+  d) usurper ou falsifier l'identité d'un titulaire de Licence Commerciale.
+
+Toute violation du présent article entraîne la résiliation immédiate et de
+plein droit de la licence d'évaluation accordée à l'Article 2.
+
+
+ARTICLE 5 — ABSENCE DE DISPOSITIF MÉDICAL
+
+Le Logiciel n'est PAS un dispositif médical au sens du Règlement (UE)
+2017/745 relatif aux dispositifs médicaux (MDR), et n'a fait l'objet
+d'aucun marquage CE médical, d'aucune évaluation de conformité à ce titre,
+ni d'aucune autorisation ou clearance de la Food and Drug Administration
+(FDA) américaine ou de toute autre autorité de santé.
+
+Le Logiciel implémente des scores cliniques publiés (NEWS2, qSOFA) à titre
+d'aide au tri et à la surveillance. Il ne pose, ne suggère et ne remplace
+aucun diagnostic médical. Toute décision clinique reste sous la
+responsabilité exclusive du professionnel de santé qui l'exerce. L'usage du
+Logiciel dans un contexte de soin ne dispense en rien le Licencié de ses
+obligations réglementaires propres, y compris, le cas échéant, celles
+relatives à la qualification du Logiciel ou du système dans lequel il est
+intégré au regard du droit des dispositifs médicaux.
+
+
+ARTICLE 6 — GARANTIE ET LIMITATION DE RESPONSABILITÉ
+
+LE LOGICIEL EST FOURNI « EN L'ÉTAT », SANS GARANTIE D'AUCUNE SORTE,
+EXPRESSE OU IMPLICITE, Y COMPRIS SANS S'Y LIMITER LES GARANTIES DE
+QUALITÉ MARCHANDE, D'ADÉQUATION À UN USAGE PARTICULIER ET D'ABSENCE DE
+CONTREFAÇON.
+
+DANS TOUTE LA MESURE PERMISE PAR LE DROIT APPLICABLE, GROUPE BUSINESS
+THÉRAPIE NE POURRA ÊTRE TENU RESPONSABLE D'AUCUN DOMMAGE DIRECT, INDIRECT,
+ACCESSOIRE, SPÉCIAL OU CONSÉCUTIF (Y COMPRIS, SANS LIMITATION, UN PRÉJUDICE
+CORPOREL, UNE PERTE DE DONNÉES, UNE PERTE D'EXPLOITATION OU UNE PERTE DE
+CHANCE) RÉSULTANT DE L'UTILISATION OU DE L'IMPOSSIBILITÉ D'UTILISER LE
+LOGICIEL, MÊME SI GROUPE BUSINESS THÉRAPIE A ÉTÉ AVISÉ DE LA POSSIBILITÉ DE
+TELS DOMMAGES. CETTE LIMITATION S'APPLIQUE EN PARTICULIER À TOUTE
+CONSÉQUENCE CLINIQUE D'UNE DÉCISION PRISE, EN TOUT OU PARTIE, SUR LA FOI
+D'UN RÉSULTAT PRODUIT PAR LE LOGICIEL.
+
+Pour les Licenciés bénéficiant d'une Licence Commerciale, un régime de
+responsabilité spécifique peut être négocié dans le contrat correspondant ;
+à défaut de stipulation contraire écrite, le présent article s'applique.
+
+
+ARTICLE 7 — PROPRIÉTÉ INTELLECTUELLE
+
+Le Logiciel demeure à tout moment la propriété exclusive de
+Groupe Business Thérapie. La présente licence n'emporte aucune cession de
+droit de propriété intellectuelle au profit du Licencié. Toute mention de
+copyright, d'attribution ou de Mécanisme de Contrôle de Licence présente
+dans le Logiciel doit être conservée dans toute copie ou œuvre dérivée
+distribuée dans le cadre de l'Article 2.
+
+
+ARTICLE 8 — DURÉE ET RÉSILIATION
+
+La présente licence prend effet dès l'accès au Logiciel et demeure en
+vigueur jusqu'à sa résiliation. Elle est résiliée automatiquement et sans
+préavis en cas de manquement du Licencié à l'une quelconque de ses
+stipulations, notamment en cas d'Usage Commercial ou Clinique sans Licence
+Commerciale ou de violation de l'Article 4. En cas de résiliation, le
+Licencié doit cesser tout usage du Logiciel et détruire toute copie en sa
+possession, sous réserve des droits acquis par un Licencié Commercial au
+titre de son contrat propre.
+
+
+ARTICLE 9 — DROIT APPLICABLE ET JURIDICTION
+
+La présente licence est régie par le droit français. Tout litige relatif à
+sa validité, son interprétation ou son exécution relève de la compétence
+exclusive des tribunaux français compétents, sauf disposition impérative
+contraire.
+
+
+ARTICLE 10 — DISPOSITIONS DIVERSES
+
+Si une clause de la présente licence est jugée invalide ou inapplicable par
+une juridiction compétente, les autres clauses demeurent pleinement en
+vigueur. Le fait pour Groupe Business Thérapie de ne pas se prévaloir d'un
+manquement ne vaut pas renonciation à s'en prévaloir ultérieurement. Pour
+obtenir une Licence Commerciale ou pour toute question relative à la
+présente licence : contact@groupe-businesstherapie.net — voir aussi
+COMMERCIAL.md et https://galimedai.org.
