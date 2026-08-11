@@ -1,0 +1,15 @@
+{
+  "name": "KharYsma Coins",
+  "symbol": "KHACN",
+  "chain": "solana",
+  "network": "Solana Mainnet-Beta",
+  "address": "3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump",
+  "decimals": 6,
+  "logoURI": "https://raw.githubusercontent.com/galimed/khacn/main/logo.png",
+  "website": "https://startarcoins.com/solana.html",
+  "explorer": "https://solscan.io/token/3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump",
+  "launchpad": "https://pump.fun/coin/3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump",
+  "note": "Official Solana deployment of KharYsma Coins. Same project and logo as the Ethereum ERC-20, but a separate chain with its own total supply. The two are distinct tokens and are not bridged.",
+  "ethereumCounterpart": "0x11c1b94294A7967092F747434dEE4876EcA5fD53",
+  "liveSince": "2026-08-11"
+}

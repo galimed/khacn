@@ -38,7 +38,19 @@ CANONICAL_NAME = "KharYsma Coins"
 CANONICAL_CHAIN_ID = 1
 CANONICAL_WEBSITE = "https://startarcoins.com"
 
+# --- Solana deployment (official fork, live since 11 August 2026).
+# --- Same project, same logo, a DIFFERENT chain and a DIFFERENT total supply.
+CANONICAL_SOLANA_ADDRESS = "3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump"
+CANONICAL_SOLANA_WEBSITE = "https://startarcoins.com/solana.html"
+
 ADDRESS_RE = re.compile(r"0x[0-9a-fA-F]{40}")
+
+# Solana mint addresses are base58-encoded 32-byte public keys. A loose base58
+# regex would also match git SHAs and random identifiers, so a candidate only
+# counts as a Solana address once it decodes to EXACTLY 32 bytes. That check,
+# not the regex, is what makes the detection precise.
+_B58_ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
+SOLANA_RE = re.compile(r"\b[1-9A-HJ-NP-Za-km-z]{32,44}\b")
 
 # Extensions worth scanning: anything that can publish the token identity.
 SCAN_SUFFIXES = {".md", ".json", ".txt", ".html", ".yml", ".yaml"}
@@ -95,6 +107,49 @@ def check_address(rel_path, address, critical, warnings):
         )
 
 
+def b58decode(text):
+    """Decode base58. Returns bytes, or None when the input is not base58."""
+    n = 0
+    for ch in text:
+        idx = _B58_ALPHABET.find(ch)
+        if idx < 0:
+            return None
+        n = n * 58 + idx
+    raw = n.to_bytes((n.bit_length() + 7) // 8, "big") if n else b""
+    return b"\x00" * (len(text) - len(text.lstrip("1"))) + raw
+
+
+def is_solana_pubkey(text):
+    """True only when text decodes to exactly 32 bytes — a real Solana pubkey."""
+    raw = b58decode(text)
+    return raw is not None and len(raw) == 32
+
+
+def check_solana_address(rel_path, address, critical):
+    """Any 32-byte base58 key in the tree must be the official KHACN mint."""
+    if address == CANONICAL_SOLANA_ADDRESS:
+        return
+    critical.append(
+        f"{rel_path}: Solana address {address} is NOT the official KHACN mint "
+        f"{CANONICAL_SOLANA_ADDRESS} — possible substitution attempt."
+    )
+
+
+def self_test_solana():
+    """Prove the base58 decoder before trusting it, same rule as the Keccak side."""
+    if not is_solana_pubkey(CANONICAL_SOLANA_ADDRESS):
+        raise RuntimeError(
+            "Base58 self-test FAILED: the pinned Solana address does not decode "
+            "to a 32-byte public key. Refusing to run."
+        )
+    # A well-known 32-byte system address must also decode cleanly.
+    if not is_solana_pubkey("So11111111111111111111111111111111111111112"):
+        raise RuntimeError("Base58 self-test FAILED on the wrapped-SOL mint.")
+    # A git SHA must NOT be mistaken for a Solana key.
+    if is_solana_pubkey("a1cf2d3ad71d059cb4670e4c176cf14bc8fc9d61b19d"):
+        raise RuntimeError("Base58 self-test FAILED: git-SHA-like string accepted.")
+
+
 def check_metadata_fields(path, rel_path, critical):
     """If this file is KHACN token metadata, its identity fields must match."""
     try:
@@ -105,13 +160,32 @@ def check_metadata_fields(path, rel_path, critical):
     if not isinstance(data, dict):
         return
 
-    expected = {
-        "symbol": CANONICAL_SYMBOL,
-        "name": CANONICAL_NAME,
-        "chainId": CANONICAL_CHAIN_ID,
-        "address": CANONICAL_ADDRESS,
-        "website": CANONICAL_WEBSITE,
-    }
+    # KHACN lives on two chains, so the expected identity depends on which one
+    # this file describes. A Solana metadata file legitimately carries a base58
+    # mint and its own site; validating it against the Ethereum values would be
+    # a false positive.
+    is_solana = (
+        str(data.get("chain", "")).lower() == "solana"
+        or "solana" in str(data.get("network", "")).lower()
+        or is_solana_pubkey(str(data.get("address", "")))
+    )
+
+    if is_solana:
+        expected = {
+            "symbol": CANONICAL_SYMBOL,
+            "name": CANONICAL_NAME,
+            "address": CANONICAL_SOLANA_ADDRESS,
+            "website": CANONICAL_SOLANA_WEBSITE,
+        }
+    else:
+        expected = {
+            "symbol": CANONICAL_SYMBOL,
+            "name": CANONICAL_NAME,
+            "chainId": CANONICAL_CHAIN_ID,
+            "address": CANONICAL_ADDRESS,
+            "website": CANONICAL_WEBSITE,
+        }
+
     # Only enforce on objects that actually claim to describe KHACN, so an
     # unrelated JSON file in the tree is not falsely flagged.
     claims_khacn = str(data.get("symbol", "")).upper() == CANONICAL_SYMBOL or "address" in data
@@ -147,6 +221,11 @@ def scan_repo(repo_root, critical, warnings):
             addresses_found += 1
             check_address(rel, addr, critical, warnings)
 
+        for cand in sorted(set(SOLANA_RE.findall(text))):
+            if is_solana_pubkey(cand):
+                addresses_found += 1
+                check_solana_address(rel, cand, critical)
+
         if path.suffix.lower() == ".json":
             check_metadata_fields(path, rel, critical)
 
@@ -157,6 +236,8 @@ def scan_repo(repo_root, critical, warnings):
 def main(argv):
     self_test_crypto()
     print("[ok] Keccak-256 / EIP-55 self-test passed (4/4 published vectors)")
+    self_test_solana()
+    print("[ok] base58 / Solana self-test passed (pubkey, wSOL, git-SHA rejection)")
 
     if eip55_checksum(CANONICAL_ADDRESS[2:]) != CANONICAL_ADDRESS:
         print("[FATAL] pinned CANONICAL_ADDRESS is not valid EIP-55.")

@@ -7,6 +7,7 @@
   <a href="https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53"><img src="https://img.shields.io/badge/Etherscan-Verified_Contract-21325b?style=for-the-badge" alt="Etherscan" /></a>
   <a href="https://app.uniswap.org/explore/tokens/ethereum/0x11c1b94294A7967092F747434dEE4876EcA5fD53"><img src="https://img.shields.io/badge/Uniswap-Token_Page-ff007a?style=for-the-badge" alt="Uniswap" /></a>
   <img src="https://img.shields.io/badge/Network-Ethereum_Mainnet-3c3c3d?style=for-the-badge" alt="Ethereum Mainnet" />
+  <a href="https://startarcoins.com/solana.html"><img src="https://img.shields.io/badge/Also_on-Solana-9945FF?style=for-the-badge" alt="Solana" /></a>
 </p>
 
 # KHACN — KharYsma Coins
@@ -17,6 +18,40 @@
 | **Etherscan** | [View token](https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53) |
 | **Token source code** | [Verified contract](https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53#code) |
 | **Uniswap** | [Token page](https://app.uniswap.org/explore/tokens/ethereum/0x11c1b94294A7967092F747434dEE4876EcA5fD53) |
+
+---
+
+## 🌐 Multichain — Ethereum + Solana
+
+Since **11 August 2026**, KharYsma Coins is deployed on **two blockchains**.
+
+> **Two chains, two separate tokens.** They share the project, the team and the
+> logo — but each has its **own contract and its own total supply**, and they are
+> **not bridged**. A balance on one chain is not a balance on the other. Always
+> confirm which network you are on before any transaction.
+
+| | Ethereum | Solana |
+|---|---|---|
+| **Standard** | ERC-20 | SPL |
+| **Network** | Ethereum Mainnet | Solana Mainnet-Beta |
+| **Contract / mint** | `0x11c1b94294A7967092F747434dEE4876EcA5fD53` | `3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump` |
+| **Explorer** | [Etherscan](https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53) | [Solscan](https://solscan.io/token/3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump) |
+| **Pools** | ETH/KHACN · USDT/KHACN | SOL/KHACN |
+| **Dedicated page** | [startarcoins.com](https://startarcoins.com) | [startarcoins.com/solana.html](https://startarcoins.com/solana.html) |
+| **Metadata** | [`token-metadata.json`](token-metadata.json) | [`solana-metadata.json`](solana-metadata.json) |
+
+### Official Solana mint
+
+```text
+3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump
+```
+
+Launched via [pump.fun](https://pump.fun/coin/3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump).
+Live price, whitepaper and full details: **[startarcoins.com/solana.html](https://startarcoins.com/solana.html)**
+
+> **Only trust this exact mint address for KHACN on Solana.** The same warning
+> that applies to the Ethereum contract applies here: verify the complete
+> address, never a logo, ticker or search result alone.
 
 ---
 
@@ -144,6 +179,18 @@ Before buying, swapping, adding liquidity, or participating in an auction:
 * [ ] Verify the token on [Etherscan](https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53)
 * [ ] Do not rely only on a logo, token name, ticker, social-media post, or search result
 
+**On Solana**, the same checklist applies with these values:
+
+* [ ] Network is **Solana Mainnet-Beta**
+* [ ] Mint address is exactly:
+
+```text
+3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump
+```
+
+* [ ] Verify on [Solscan](https://solscan.io/token/3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump)
+* [ ] Remember the two chains have **separate supplies** and are **not bridged**
+
 ---
 
 ## 🔐 Automated Contract-Address Integrity Guard
@@ -155,6 +202,7 @@ The security notice above describes a real, recurring risk: a token that is not 
 - **Keccak-256 and the EIP-55 checksum are implemented from scratch** in `tools/keccak.py` — the Keccak-f[1600] permutation, the sponge construction and Ethereum's padding — with **zero third-party dependencies**.
 - The tool **self-tests against the four published EIP-55 known-answer vectors** on every run, and refuses to operate if its own cryptography does not verify.
 - It scans every `.md`, `.json`, `.txt`, `.html` and `.yml` file in the repository. Any Ethereum address that is not the official contract fails the check with a non-zero exit code.
+- **Solana is covered too**: base58 strings are decoded, and any that resolves to a real 32-byte mint address must match the official Solana mint. Decoding to exactly 32 bytes — not the regex — is what keeps git SHAs and random identifiers from raising false alarms.
 - A case-only difference (a lowercase address inside an explorer URL, for example) is reported as a **non-blocking notice**, not a failure — it is the same contract, merely not in canonical checksum casing.
 
 Run it manually:
@@ -201,6 +249,9 @@ Users remain responsible for their own research, wallet security, transaction ve
 - Official contract: <https://etherscan.io/token/0x11c1b94294A7967092F747434dEE4876EcA5fD53>
 - Official website: <https://startarcoins.com>
 - Official logo: <https://raw.githubusercontent.com/galimed/khacn/main/logo.png>
+- Solana page: <https://startarcoins.com/solana.html>
+- Solana mint (Solscan): <https://solscan.io/token/3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump>
+- Solana launchpad (pump.fun): <https://pump.fun/coin/3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump>
 
 ## Official KHACN metadata
 
@@ -210,6 +261,7 @@ The authoritative metadata sources in this repository are:
 |---|---|
 | [`token-metadata.json`](token-metadata.json) | Canonical token identity |
 | [`khacn-tokenlist.json`](khacn-tokenlist.json) | Uniswap-compatible token list |
+| [`solana-metadata.json`](solana-metadata.json) | Canonical Solana mint identity |
 
 Both are covered by the integrity guard described above.
 
@@ -221,6 +273,6 @@ Both are covered by the integrity guard described above.
 🌐 [startarcoins.com](https://startarcoins.com) · [groupe-businesstherapie.net](https://www.groupe-businesstherapie.net)
 
 <p align="center">
-  <strong>KHACN • OFFICIAL • Ethereum Mainnet</strong><br />
+  <strong>KHACN • OFFICIAL • Ethereum Mainnet + Solana</strong><br />
   Built by Groupe Business Thérapie (GBT)
 </p>

@@ -14,5 +14,16 @@
     "pair": "KHACN/USDT",
     "url": "https://tokpie.com/dashboard/make_request/khacn-usdt/"
   },
-  "updatedAt": "2026-07-09"
+  "updatedAt": "2026-07-09",
+  "multichain": {
+    "note": "KHACN exists on two chains with separate total supplies. They are distinct tokens, not bridged.",
+    "ethereum": {
+      "address": "0x11c1b94294A7967092F747434dEE4876EcA5fD53",
+      "metadata": "token-metadata.json"
+    },
+    "solana": {
+      "address": "3dhbW1cBcyLddaJXDrY6fP45xfgap45qoCfnaTMCpump",
+      "metadata": "solana-metadata.json"
+    }
+  }
 }
