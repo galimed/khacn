@@ -1,0 +1,27 @@
+{
+  "configVersion": 2,
+  "updatedAt": "2026-09-02T00:00:00Z",
+
+  "cexApi": "https://tokpie.com/api_candlestick/?pair=KHACN@USDT&interval=15&limit=1",
+  "dexApi": "https://api.geckoterminal.com/api/v2/networks/eth/pools/0x18a3446a23dcc62744a4a97ca6b34734ac4155d9863c55976bc0d5799c436628",
+
+  "partners": [
+    "amazon.fr", "amazon.com", "cdiscount.com",
+    "ebay.fr", "ebay.com", "aliexpress.com",
+    "shopify.com", "startarcoins.com"
+  ],
+
+  "officialDomains": [
+    "startarcoins.com",
+    "kharysma.com",
+    "khacn.io",
+    "kharysma-an.fr"
+  ],
+
+  "scamPatterns": [
+    "khacn-airdrop", "kharysma-reward", "kharysma-wallet-verification",
+    "free-khacn", "kharysma-bonus", "khacn-claim", "khacn-giveaway"
+  ],
+
+  "notifications": []
+}
